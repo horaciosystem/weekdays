@@ -1,9 +1,22 @@
 'use strict';
-//Create a React component
-let WeekDays = React.createClass({
-  render () {
-    
-  }
-})
 
-//Show the react component an the screen
+import React,{
+  Component,
+  AppRegistry,
+  View,
+  Text
+} from 'react-native';
+
+class WeekDays extends Component {
+  render () {
+    return (
+      <View>
+        <Text>
+          Days of the week:
+        </Text>
+      </View>
+    )
+  }
+}
+
+AppRegistry.registerComponent('weekdays', () => WeekDays);
