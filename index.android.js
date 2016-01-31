@@ -8,20 +8,27 @@ import React,{
   StyleSheet
 } from 'react-native';
 
-import DayItem from './components/DayItem'
-
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thurday', 'Friday', 'Saturday']
+import Moment from 'moment';
+import DayItem from './components/DayItem';
 
 class WeekDays extends Component {
-  render () {
+  render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Days of the week:
-        </Text>
-        <DayItem />
+        {this.days()}
       </View>
     )
+  }
+
+  days() {
+    let daysItems = [];
+    for (var i =0; i< 7; i++) {
+      let day = Moment().add(i, 'days').format('dddd');
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} />
+      )
+    }
+    return daysItems;
   }
 };
 
